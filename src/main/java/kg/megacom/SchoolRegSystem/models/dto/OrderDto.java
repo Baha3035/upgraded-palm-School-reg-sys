@@ -11,10 +11,10 @@ public class OrderDto {
         private long id;
         private String school_name;
         private String address;
-        private Date add_date;
-        private Date end_date;
-        private Date navi_date;
+        private Date addDate;
+        private Date endDate;
+        private Date naviDate;
         private String comment;
-        private Subscriber subscriber;
-        private OrderStatus order_status;
+        private SubscriberDto subscriberDto;
+        private OrderStatus orderStatus;
 }

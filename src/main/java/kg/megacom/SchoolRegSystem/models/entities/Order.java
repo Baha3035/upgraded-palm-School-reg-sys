@@ -2,6 +2,7 @@ package kg.megacom.SchoolRegSystem.models.entities;
 
 import kg.megacom.SchoolRegSystem.models.enums.OrderStatus;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,14 +14,25 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String school_name;
+    @Column(name = "school_name")
+    private String schoolName;
     private String address;
-    private Date add_date;
-    private Date end_date;
-    private Date navi_date;
+    @Column(name = "add_date")
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date addDate;
+    @Column(name = "end_date")
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date endDate;
+    @Column(name = "navi_date")
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date naviDate;
     private String comment;
     @ManyToOne
     private Subscriber subscriber;
-
-    private OrderStatus order_status;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "order_status")
+    private OrderStatus orderStatus;
 }

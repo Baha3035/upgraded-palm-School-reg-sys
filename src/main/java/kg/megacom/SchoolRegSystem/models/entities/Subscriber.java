@@ -1,6 +1,7 @@
 package kg.megacom.SchoolRegSystem.models.entities;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,6 +15,8 @@ public class Subscriber {
     private long id;
     private String name;
     @Column(name = "date_of_birth")
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateOfBirth;
     private String phone;
     private int age;
